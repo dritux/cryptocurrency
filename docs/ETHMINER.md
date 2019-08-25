@@ -1,3 +1,20 @@
+
+### install 
+apt-get install opencl-amdgpu-pro-icd cmake git mesa-common-dev
+mkdir ~/ethminer; cd ~/ethminer
+git clone https://github.com/ethereum-mining/ethminer.git .
+git submodule update --init --recursive
+mkdir build; cd build
+cmake .. -DETHASHCUDA=OFF -DETHASHCL=ON
+cmake --build .
+sudo make install
+ethminer -G -M
+
+ethminer -G --report-hr -P stratum1+tcp://e83e059f243298151a14d867d56aa9806581265d@eth-eu1.nanopool.org:9999/dell
+
+
+
+
 https://ethermine.org/miners/e83e059f243298151a14d867d56aa9806581265d/dashboard
 
 
@@ -25,17 +42,15 @@ Example wallet 0xea7263feb7d8a8ab0a11eedd8f1ce04412ab0820, worker rig1 and mail@
 
 ./ethminer/ethminer -G -F http://eu1.ethpool.org/0xe83e059f243298151a14d867d56aa9806581265d/dellcasa/dritec@gmail.com
 
-
-
 ./ethminer/ethminer -G -F http://eth-eu.dwarfpool.com:80/0xea7263feb7d8a8ab0a11eedd8f1ce04412ab0820
 
-
-
 ./ethminer/ethminer -C -F http://eth.pool.minergate.com:55751/dritec@gmail.com --disable-submit-hashrate
-
 
 ./ethminer/ethminer -epool us1.ethermine.org:4444 -ewal \
 0xe83e059f243298151a14d867d56aa9806581265d ETH -epsw x -dpool \
 stratum+tcp://dcr.suprnova.cc:3252 -dwal Dritux.my -dpsw x
 
 ethminer -G -F us1.ethermine.org/0xe83e059f243298151a14d867d56aa9806581265d/dritec@gmail.com --cl-local-work 256 --cl-global-work 16384
+
+
+https://www.perfacilis.com/blog/crypto-currency/mining-ethereum-on-ubuntu-with-ethminer.html
